@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Saarthi - Multilingual Mandi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">AI Saarthi</span>
+                </div>
+                <div class="location-status">
+                    <span class="location">📍 हैदराबाद मंडी</span>
+                    <span class="status offline">ऑफलाइन</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Price Discovery Section -->
+            <section class="price-discovery">
+                <h2>Trust Ledger - स्थानीय भाव</h2>
+                <div class="price-grid">
+                    <div class="price-card">
+                        <div class="produce-icon">🍅</div>
+                        <h3>टमाटर / Tomato</h3>
+                        <div class="price-range">
+                            <span class="min-price">₹15</span>
+                            <span class="separator">-</span>
+                            <span class="max-price">₹20</span>
+                            <span class="unit">/kg</span>
+                        </div>
+                        <div class="trust-indicator">
+                            <span class="trust-score">विश्वसनीय</span>
+                            <div class="trust-dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="produce-icon">🧅</div>
+                        <h3>प्याज / Onion</h3>
+                        <div class="price-range">
+                            <span class="min-price">₹25</span>
+                            <span class="separator">-</span>
+                            <span class="max-price">₹30</span>
+                            <span class="unit">/kg</span>
+                        </div>
+                        <div class="trust-indicator">
+                            <span class="trust-score">विश्वसनीय</span>
+                            <div class="trust-dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="produce-icon">🍌</div>
+                        <h3>केला / Banana</h3>
+                        <div class="price-range">
+                            <span class="min-price">₹35</span>
+                            <span class="separator">-</span>
+                            <span class="max-price">₹45</span>
+                            <span class="unit">/kg</span>
+                        </div>
+                        <div class="trust-indicator">
+                            <span class="trust-score">विश्वसनीय</span>
+                            <div class="trust-dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Voice Interface Section -->
+            <section class="voice-interface">
+                <h2>बातचीत शुरू करें</h2>
+                <div class="voice-container">
+                    <div class="mic-wrapper">
+                        <button class="mic-button" id="micButton">
+                            <span class="mic-icon">🎤</span>
+                            <div class="pulse-ring"></div>
+                        </button>
+                        <p class="voice-instruction">बोलें / ਬੋਲੋ / பேசுங்கள் / మాట్లాడండి</p>
+                    </div>
+                    
+                    <div class="language-selector">
+                        <select id="languageSelect">
+                            <option value="hi">हिंदी</option>
+                            <option value="te">తెలుగు</option>
+                            <option value="ta">தமிழ்</option>
+                            <option value="pa">ਪੰਜਾਬੀ</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Negotiation Assistant -->
+            <section class="negotiation-assistant" id="negotiationSection" style="display: none;">
+                <h2>बातचीत सहायक</h2>
+                <div class="conversation-display">
+                    <div class="message-container" id="messageContainer">
+                        <!-- Messages will be added here dynamically -->
+                    </div>
+                </div>
+                
+                <div class="fairness-indicator">
+                    <h3>न्याय संकेतक</h3>
+                    <div class="fairness-lights">
+                        <div class="light green" id="greenLight">
+                            <span class="light-label">उचित</span>
+                        </div>
+                        <div class="light yellow" id="yellowLight">
+                            <span class="light-label">सावधान</span>
+                        </div>
+                        <div class="light red" id="redLight">
+                            <span class="light-label">खतरा</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn accept" id="acceptBtn">
+                        <span class="btn-icon">✓</span>
+                        <span>स्वीकार करें</span>
+                    </button>
+                    <button class="action-btn wait" id="waitBtn">
+                        <span class="btn-icon">⏳</span>
+                        <span>प्रतीक्षा करें</span>
+                    </button>
+                    <button class="action-btn counter" id="counterBtn">
+                        <span class="btn-icon">↻</span>
+                        <span>काउंटर ऑफर</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>AI Saarthi - स्थानीय व्यापार को सशक्त बनाना</p>
+            <div class="sync-status">
+                <span class="sync-indicator">🔄</span>
+                <span>अगली सिंक: 2 मिनट में</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="demo.js"></script>
+</body>
+</html>

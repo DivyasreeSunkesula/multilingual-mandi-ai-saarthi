@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negotiation Flow</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Arial', sans-serif;
+        }
+        .flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .step {
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+        }
+        .farmer {
+            width: 80px;
+            height: 80px;
+            background: #90EE90;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .farmer::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            right: 10px;
+            height: 20px;
+            background: #FF6347;
+            border-radius: 50px 50px 0 0;
+        }
+        .farmer::after {
+            content: '👨‍🌾';
+            font-size: 30px;
+        }
+        .speech-bubble {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            padding: 10px 15px;
+            margin: 10px auto;
+            position: relative;
+            max-width: 120px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 10px solid transparent;
+            border-right-color: white;
+        }
+        .robot {
+            width: 80px;
+            height: 80px;
+            background: #6c757d;
+            border-radius: 15px;
+            margin: 0 auto 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .robot::before {
+            content: '🤖';
+            font-size: 40px;
+        }
+        .clipboard {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 3px solid #333;
+            border-radius: 10px;
+            margin: 0 auto 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .clipboard::before {
+            content: '📋';
+            font-size: 40px;
+        }
+        .traffic-lights {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            margin: 0 auto 10px;
+        }
+        .light {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+        .green { background: #28a745; }
+        .yellow { background: #ffc107; }
+        .red { background: #dc3545; }
+        .handshake {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #90EE90, #8B4513);
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .handshake::before {
+            content: '🤝';
+            font-size: 40px;
+        }
+        .arrow {
+            font-size: 30px;
+            color: #007bff;
+            margin: 0 10px;
+        }
+        .step-title {
+            font-weight: bold;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+        .step-desc {
+            font-size: 12px;
+            color: #666;
+        }
+        .hindi-text {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+        .guidance-text {
+            font-size: 11px;
+            margin-top: 5px;
+        }
+        .guidance-text .green-text { color: #28a745; }
+        .guidance-text .yellow-text { color: #ffc107; }
+        .guidance-text .red-text { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <div class="flow-container">
+        <div class="step">
+            <div class="farmer"></div>
+            <div class="speech-bubble">
+                <div class="hindi-text">क्या भाव<br>मिलेगा?</div>
+            </div>
+            <div class="step-title">Farmer speaks</div>
+            <div class="step-desc">in local language</div>
+        </div>
+        
+        <div class="arrow">→</div>
+        
+        <div class="step">
+            <div class="robot"></div>
+            <div class="step-title">AI translates</div>
+            <div class="step-desc">in real time</div>
+        </div>
+        
+        <div class="arrow">→</div>
+        
+        <div class="step">
+            <div class="clipboard"></div>
+            <div class="step-title">AI checks Trust Ledger</div>
+        </div>
+        
+        <div class="arrow">→</div>
+        
+        <div class="step">
+            <div class="traffic-lights">
+                <div class="light green"></div>
+                <div class="light yellow"></div>
+                <div class="light red"></div>
+            </div>
+            <div class="step-title">AI gives negotiation<br>guidance</div>
+            <div class="guidance-text">
+                <span class="green-text">Green</span> / 
+                <span class="yellow-text">Yellow</span> / 
+                <span class="red-text">Red</span>
+            </div>
+        </div>
+        
+        <div class="arrow">→</div>
+        
+        <div class="step">
+            <div class="handshake"></div>
+            <div class="step-title">Successful Fair Trade</div>
+        </div>
+    </div>
+</body>
+</html>

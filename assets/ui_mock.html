@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile UI Mock</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .phone {
+            width: 300px;
+            height: 600px;
+            background: linear-gradient(145deg, #2c3e50, #34495e);
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .status-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+        .location {
+            font-size: 16px;
+        }
+        .wifi {
+            font-size: 18px;
+        }
+        .price-bar {
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+            display: flex;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .price-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .green-section { background: #28a745; }
+        .yellow-section { background: #ffc107; }
+        .red-section { background: #dc3545; }
+        .mic-container {
+            margin: 40px 0;
+        }
+        .mic-button {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(145deg, #007bff, #0056b3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,123,255,0.3);
+            cursor: pointer;
+            transition: transform 0.2s;
+            position: relative;
+        }
+        .mic-button:hover {
+            transform: scale(1.05);
+        }
+        .mic-button::before {
+            content: '🎤';
+            font-size: 50px;
+        }
+        .mic-button::after {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.1); opacity: 0; }
+        }
+        .language-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .action-btn {
+            width: 70px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+        .accept-btn { background: #28a745; }
+        .wait-btn { background: #ffc107; }
+        .counter-btn { background: #dc3545; }
+        .btn-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        .home-indicator {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background: #666;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <div class="screen">
+            <div class="status-bar">
+                <span class="location">स्थान: हैदराबाद (ऑफलाइन)</span>
+                <span class="wifi">📶</span>
+            </div>
+            
+            <div class="price-bar">
+                <div class="price-section green-section">₹</div>
+                <div class="price-section yellow-section">₹₹</div>
+                <div class="price-section red-section">₹₹₹</div>
+            </div>
+            
+            <div class="mic-container">
+                <div class="mic-button"></div>
+            </div>
+            
+            <div class="language-text">
+                बोलें / ਬੋਲੋ / பேசுங்கள்
+            </div>
+            
+            <div class="action-buttons">
+                <div class="action-btn accept-btn">
+                    <div class="btn-icon">✓</div>
+                    <div>स्वीकारें</div>
+                </div>
+                <div class="action-btn wait-btn">
+                    <div class="btn-icon">⧗</div>
+                    <div>रुकें</div>
+                </div>
+                <div class="action-btn counter-btn">
+                    <div class="btn-icon">↻</div>
+                    <div>काउंटर</div>
+                </div>
+            </div>
+        </div>
+        <div class="home-indicator"></div>
+    </div>
+</body>
+</html>

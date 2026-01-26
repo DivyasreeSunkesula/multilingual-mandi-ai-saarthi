@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Visuals - Multilingual Mandi</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(ellipse at center, #8B4513 0%, #654321 50%, #3e2723 100%);
+            font-family: 'Arial', sans-serif;
+            overflow-x: auto;
+        }
+        .marketplace {
+            width: 1200px;
+            height: 800px;
+            position: relative;
+            margin: 0 auto;
+            background: 
+                radial-gradient(circle at 200px 180px, rgba(255,215,0,0.3) 0%, transparent 20%),
+                radial-gradient(circle at 400px 160px, rgba(255,215,0,0.3) 0%, transparent 20%),
+                radial-gradient(circle at 600px 170px, rgba(255,215,0,0.3) 0%, transparent 20%),
+                radial-gradient(circle at 800px 165px, rgba(255,215,0,0.3) 0%, transparent 20%),
+                radial-gradient(circle at 1000px 175px, rgba(255,215,0,0.3) 0%, transparent 20%);
+        }
+        .ceiling {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to bottom, #5d4037 0%, rgba(93,64,55,0.8) 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+        }
+        .hanging-light {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255,215,0,0.6);
+        }
+        .light1 { top: 180px; left: 200px; }
+        .light2 { top: 160px; left: 400px; }
+        .light3 { top: 170px; left: 600px; }
+        .light4 { top: 165px; left: 800px; }
+        .light5 { top: 175px; left: 1000px; }
+        .stall {
+            position: absolute;
+            bottom: 0;
+            width: 200px;
+            height: 300px;
+            background: rgba(139,69,19,0.7);
+            border-radius: 10px 10px 0 0;
+        }
+        .stall1 { left: 50px; }
+        .stall2 { left: 300px; }
+        .stall3 { left: 700px; }
+        .stall4 { left: 950px; }
+        .produce {
+            position: absolute;
+            bottom: 100px;
+            width: 100px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        .tomatoes {
+            left: 100px;
+            background: radial-gradient(ellipse, #FF6347 30%, #FF4500 70%);
+        }
+        .onions {
+            left: 350px;
+            background: radial-gradient(ellipse, #DDA0DD 30%, #DA70D6 70%);
+        }
+        .bananas {
+            left: 750px;
+            background: radial-gradient(ellipse, #FFD700 30%, #FFA500 70%);
+        }
+        .greens {
+            left: 1000px;
+            background: radial-gradient(ellipse, #228B22 30%, #32CD32 70%);
+        }
+        .hologram-base {
+            position: absolute;
+            left: 500px;
+            top: 500px;
+            width: 200px;
+            height: 80px;
+            background: radial-gradient(ellipse, rgba(0,255,255,0.3) 0%, rgba(0,128,255,0.1) 100%);
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+        .ai-assistant {
+            position: absolute;
+            left: 580px;
+            top: 350px;
+            width: 40px;
+            height: 80px;
+            background: linear-gradient(to bottom, rgba(135,206,235,0.8) 0%, rgba(135,206,235,0.4) 100%);
+            border-radius: 50%;
+            filter: blur(1px);
+        }
+        .price-display {
+            position: absolute;
+            background: rgba(0,255,255,0.8);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,255,255,0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(0,255,255,0.5); }
+            to { box-shadow: 0 0 30px rgba(0,255,255,0.8); }
+        }
+        .price1 {
+            left: 120px;
+            top: 380px;
+        }
+        .price2 {
+            left: 370px;
+            top: 360px;
+        }
+        .price3 {
+            left: 770px;
+            top: 380px;
+        }
+        .fair-price-shield {
+            position: absolute;
+            left: 580px;
+            top: 520px;
+            width: 40px;
+            height: 50px;
+            background: linear-gradient(to bottom, #00FF00 0%, #28a745 100%);
+            clip-path: polygon(50% 0%, 0% 40%, 0% 100%, 50% 80%, 100% 100%, 100% 40%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .fair-price-text {
+            position: absolute;
+            left: 520px;
+            top: 580px;
+            color: #00FFFF;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            width: 160px;
+        }
+        .person {
+            position: absolute;
+            bottom: 50px;
+        }
+        .farmer {
+            left: 200px;
+            font-size: 60px;
+        }
+        .customer {
+            left: 450px;
+            font-size: 60px;
+        }
+        .vendor {
+            left: 850px;
+            font-size: 60px;
+        }
+        .buyer {
+            left: 1050px;
+            font-size: 60px;
+        }
+        .mobile-device {
+            position: absolute;
+            left: 480px;
+            bottom: 200px;
+            width: 20px;
+            height: 35px;
+            background: #000;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mobile-screen {
+            width: 16px;
+            height: 28px;
+            background: rgba(0,255,255,0.8);
+            border-radius: 2px;
+        }
+        .traditional-scale {
+            position: absolute;
+            left: 160px;
+            bottom: 200px;
+            width: 60px;
+            height: 20px;
+        }
+        .scale-beam {
+            width: 100%;
+            height: 3px;
+            background: #8B4513;
+            position: relative;
+        }
+        .scale-center {
+            position: absolute;
+            left: 50%;
+            top: -5px;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #8B4513;
+            border-radius: 50%;
+        }
+        .scale-pan {
+            position: absolute;
+            top: 5px;
+            width: 15px;
+            height: 8px;
+            background: #8B4513;
+            border-radius: 0 0 50% 50%;
+        }
+        .scale-pan.left { left: -5px; }
+        .scale-pan.right { right: -5px; }
+        .digital-board {
+            position: absolute;
+            right: 50px;
+            top: 250px;
+            width: 200px;
+            height: 100px;
+            background: rgba(0,0,0,0.8);
+            border-radius: 10px;
+            padding: 15px;
+            color: #00FF00;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .title-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .main-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="marketplace">
+        <div class="ceiling"></div>
+        
+        <!-- Hanging lights -->
+        <div class="hanging-light light1"></div>
+        <div class="hanging-light light2"></div>
+        <div class="hanging-light light3"></div>
+        <div class="hanging-light light4"></div>
+        <div class="hanging-light light5"></div>
+        
+        <!-- Market stalls -->
+        <div class="stall stall1"></div>
+        <div class="stall stall2"></div>
+        <div class="stall stall3"></div>
+        <div class="stall stall4"></div>
+        
+        <!-- Produce displays -->
+        <div class="produce tomatoes"></div>
+        <div class="produce onions"></div>
+        <div class="produce bananas"></div>
+        <div class="produce greens"></div>
+        
+        <!-- Holographic elements -->
+        <div class="hologram-base"></div>
+        <div class="ai-assistant"></div>
+        
+        <!-- Price displays -->
+        <div class="price-display price1">
+            Tomatoes<br>₹15-20/kg
+        </div>
+        <div class="price-display price2">
+            Onions<br>₹25-30/kg
+        </div>
+        <div class="price-display price3">
+            Bananas<br>₹35-45/kg
+        </div>
+        
+        <!-- Fair price assurance -->
+        <div class="fair-price-shield">✓</div>
+        <div class="fair-price-text">Fair Price Assured</div>
+        
+        <!-- People -->
+        <div class="person farmer">👨‍🌾</div>
+        <div class="person customer">👩</div>
+        <div class="person vendor">👨‍💼</div>
+        <div class="person buyer">🧔</div>
+        
+        <!-- Mobile device -->
+        <div class="mobile-device">
+            <div class="mobile-screen"></div>
+        </div>
+        
+        <!-- Traditional scale -->
+        <div class="traditional-scale">
+            <div class="scale-beam">
+                <div class="scale-center"></div>
+                <div class="scale-pan left"></div>
+                <div class="scale-pan right"></div>
+            </div>
+        </div>
+        
+        <!-- Digital price board -->
+        <div class="digital-board">
+            MARKET RATES<br>
+            TOMATO: ₹18<br>
+            ONION:  ₹28<br>
+            BANANA: ₹40
+        </div>
+        
+        <!-- Title overlay -->
+        <div class="title-overlay">
+            <div class="main-title">Multilingual Mandi</div>
+            <div class="subtitle">Smart Marketplace with AI-Powered Fair Pricing</div>
+        </div>
+    </div>
+</body>
+</html>
