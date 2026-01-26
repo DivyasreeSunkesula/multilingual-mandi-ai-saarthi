@@ -142,12 +142,18 @@ This is **India-scale AI with human dignity at its core**.
 
 ## 📂 Repository Structure
 
-├── .kiro/ # Kiro-generated artifacts (mandatory)
-├── assets/ # Visual & UX representations
-│ ├── hero-visual.png
-│ ├── negotiation-flow.png
-│ └── ui-mock.png
+multilingual-mandi-ai-saarthi/
+├── .kiro/
+│   ├── project.json
+│   ├── metadata.json
+│   └── ...
+├── assets/
+│   ├── hero_visuals.png
+│   ├── negotiation_flow.png
+│   └── ui_mock.png
 ├── README.md
+└── (optional files)
+
 
 
 ---
