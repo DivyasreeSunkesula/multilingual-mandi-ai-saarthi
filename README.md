@@ -142,10 +142,11 @@ This is **India-scale AI with human dignity at its core**.
 
 ## 📂 Repository Structure
 
+```
 multilingual-mandi-ai-saarthi/
 ├── .kiro/
-│   ├── project.json
-│   ├── metadata.json
+│   ├── requirements.md
+│   ├── design.md
 │   └── ...
 ├── assets/
 │   ├── hero_visuals.png
@@ -153,6 +154,7 @@ multilingual-mandi-ai-saarthi/
 │   └── ui_mock.png
 ├── README.md
 └── (optional files)
+```
 
 
 
