@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Multilingual Mandi AI</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+              url('https://images.unsplash.com/photo-1542838132-92c53300491e');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+}
+
+/* glass style card */
+.container {
+  margin-top: 60px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  display: inline-block;
+  padding: 30px 40px;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  animation: fadeIn 0.8s ease;
+  min-width: 320px;
+}
+
+/* mic button */
+#micBtn {
+  font-size: 28px;
+  padding: 18px 26px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #4facfe, #ffb199); /* neutral */
+  transition: transform 0.2s, background 0.4s, box-shadow 0.2s;
+}
+
+#micBtn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+.status {
+  font-size: 22px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 10px;
+  animation: pop 0.4s ease;
+}
+
+.flow {
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.highlight-old {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.highlight-new {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(25px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+@keyframes pop {
+  from {transform: scale(0.8); opacity:0;}
+  to {transform: scale(1); opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>🧺 AI RYTHU SAARTHI</h1>
+
+  <button id="micBtn" onclick="startListening()">🎤</button>
+
+  <p id="heard" style="margin-top:15px;"></p>
+
+  <div id="result" style="display:none;">
+    <p><b>Item:</b> <span id="item"></span></p>
+    <p><b>Vendor Price:</b> ₹<span id="spoken"></span></p>
+    <p><b>Fair Mandi Price:</b> ₹<span id="fair"></span></p>
+
+    <div id="statusBox" class="status"></div>
+
+    <div class="flow">
+      💬 Negotiation Suggestion<br>
+      Vendor asked: ₹<span id="before" class="highlight-old"></span>
+      ➜ You say: ₹<span id="after" class="highlight-new"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+function resetMicColor() {
+  document.getElementById("micBtn").style.background =
+    "linear-gradient(135deg, #4facfe, #ffb199)"; // neutral
+}
+
+function setMicColor(color) {
+  const micBtn = document.getElementById("micBtn");
+  if (color === "green") {
+    micBtn.style.background = "linear-gradient(135deg, #00c853, #69f0ae)";
+  } else if (color === "orange") {
+    micBtn.style.background = "linear-gradient(135deg, #ff9800, #ffd180)";
+  } else if (color === "red") {
+    micBtn.style.background = "linear-gradient(135deg, #d50000, #ff5252)";
+  }
+}
+
+function startListening() {
+  resetMicColor(); // neutral when starting new speech
+
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+
+  recognition.lang = "en-IN"; // supports Indian mixed speech
+  recognition.start();
+
+  recognition.onresult = async function(event) {
+    const text = event.results[0][0].transcript;
+    document.getElementById("heard").innerText = "You said: " + text;
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: text })
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        document.getElementById("heard").innerText += " (Could not understand item/price)";
+        document.getElementById("result").style.display = "none";
+        return;
+      }
+
+      // show result card
+      document.getElementById("result").style.display = "block";
+
+      // fill values
+      document.getElementById("item").innerText = data.item;
+      document.getElementById("spoken").innerText = data.spoken_price;
+      document.getElementById("fair").innerText = data.fair_price;
+
+      // status badge
+      const box = document.getElementById("statusBox");
+      box.innerText = data.status;
+      box.style.backgroundColor = data.color;
+
+      // negotiation flow
+      document.getElementById("before").innerText = data.spoken_price;
+      document.getElementById("after").innerText = data.suggested_counter;
+
+      // change mic color based on status
+      setMicColor(data.color);
+
+    } catch (err) {
+      document.getElementById("heard").innerText = "Error connecting to server";
+    }
+  };
+}
+</script>
+
+</body>
+</html>
