@@ -1,4 +1,4 @@
-# 🇮🇳 Multilingual Mandi  
+#  Multilingual Mandi  
 ### Building India's Fair, Voice-First, AI-Powered Local Trade Network
 
 > *An AI for Bharat initiative that strengthens grassroots commerce without disrupting cultural practices.*
@@ -98,7 +98,7 @@ AI **augments human intuition**, not replaces it.
 
 ---
 
-## 🇮🇳 Alignment with Viksit Bharat
+##  Alignment with Viksit Bharat
 
 Multilingual Mandi contributes to:
 - Farmer income stability
